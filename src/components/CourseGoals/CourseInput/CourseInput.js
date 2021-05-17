@@ -50,6 +50,7 @@ const CourseInput = props => {
       return;
     }
     props.onAddGoal(enteredValue);
+    setEnteredValue('');
   };
 
   return (
@@ -57,7 +58,11 @@ const CourseInput = props => {
       {/* conditional styling based on state of isValid */}
       <FormControl invalid={!isValid}>
         <label>Course Goal</label>
-        <input type='text' onChange={goalInputChangeHandler} />
+        <input
+          type='text'
+          value={enteredValue}
+          onChange={goalInputChangeHandler}
+        />
       </FormControl>
       <Button type='submit'>Add Goal</Button>
     </form>
